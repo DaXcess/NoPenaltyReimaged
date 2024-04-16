@@ -9,7 +9,7 @@ public class Plugin : BaseUnityPlugin
 {
     private const string PLUGIN_GUID = "io.daxcess.nopenaltyreimagined";
     private const string PLUGIN_NAME = "NoPenaltyReimaged";
-    private const string PLUGIN_VERSION = "1.0.0";
+    private const string PLUGIN_VERSION = "1.1.0";
     
     public static bool NoPenaltyEnabled { get; internal set; }
 

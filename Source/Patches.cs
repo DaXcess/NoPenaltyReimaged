@@ -22,7 +22,7 @@ internal static class NoPenaltyPatches
         var isHost = __instance.NetworkManager.IsHost || __instance.NetworkManager.IsServer;
 
         // On LAN, disable NoPenalty if we're not the host
-        // Any credit desync will be fixed by `SyncTerminalCredits` anyway (if they have NoPenalty installed)
+        // Any credit desync will be fixed by `SyncTerminalCredits` anyway (if the host has NoPenalty installed)
         if (GameNetworkManager.Instance.currentLobby is not { } lobby)
         {
             Plugin.NoPenaltyEnabled = isHost;
@@ -52,7 +52,6 @@ internal static class NoPenaltyPatches
     /// </summary>
     [HarmonyPatch(typeof(StartOfRound), nameof(StartOfRound.EndOfGame), MethodType.Enumerator)]
     [HarmonyTranspiler]
-    [HarmonyDebug]
     private static IEnumerable<CodeInstruction> RemovePenalty(IEnumerable<CodeInstruction> instructions,
         ILGenerator generator)
     {
