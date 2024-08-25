@@ -9,14 +9,12 @@ public class Plugin : BaseUnityPlugin
 {
     private const string PLUGIN_GUID = "io.daxcess.nopenaltyreimagined";
     private const string PLUGIN_NAME = "NoPenaltyReimaged";
-    private const string PLUGIN_VERSION = "1.1.0";
+    private const string PLUGIN_VERSION = "1.1.1";
     
     public static bool NoPenaltyEnabled { get; internal set; }
 
     private void Awake()
     {
-        NoPenaltyReimagined.Logger.SetSource(Logger);
-        
         Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly());
         Logger.LogInfo("Let's commit some tax fraud!");
     }

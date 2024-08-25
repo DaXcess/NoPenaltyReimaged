@@ -34,17 +34,14 @@ internal static class NoPenaltyPatches
             // We're the host, enable no penalty
             Plugin.NoPenaltyEnabled = true;
 
-            Logger.LogDebug("Setting lobby data \"NoPenaltyPresent\" = \"true\"");
             lobby.SetData("NoPenaltyPresent", "true");
             return;
         }
 
-        Logger.LogDebug("Checking if host has NoPenalty installed");
         if (lobby.GetData("NoPenaltyPresent") != "true") return;
         
         // Host has no penalty installed, enable it locally as well
         Plugin.NoPenaltyEnabled = true;
-        Logger.LogDebug("Host has NoPenalty installed, we good to commit tax fraud!");
     }
 
     /// <summary>
